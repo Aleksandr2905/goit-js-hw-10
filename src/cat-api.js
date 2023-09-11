@@ -14,7 +14,7 @@ export function fetchBreeds() {
     return fetch(`${refs.BASE_URL}${refs.BREEDS}?${refs.API_KEY}`)
         .then(response => {
             if (!response.ok) {
-                throw new Error(response.status);
+                throw new Error(response.data);
             }
             return response.json();
             
@@ -27,10 +27,11 @@ export function fetchCatByBreed(breedId) {
     return fetch(`${refs.BASE_URL}${refs.IMG}?${breedId}`)
     .then(response => {
             if (!response.ok) {
-                throw new Error(response.status);
+                throw new Error(response.data);
             }
             return response.json();
-        })
+    })
+    
 };
 
 
